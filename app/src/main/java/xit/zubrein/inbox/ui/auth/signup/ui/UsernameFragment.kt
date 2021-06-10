@@ -1,7 +1,7 @@
 package xit.zubrein.inbox.ui.auth.signup.ui
 
 import androidx.navigation.fragment.findNavController
-import xit.zubrein.inbox.Utils.pref.PrefKeys
+import xit.zubrein.inbox.utils.pref.PrefKeys
 import xit.zubrein.inbox.R
 import xit.zubrein.inbox.base.BaseFragment
 import xit.zubrein.inbox.databinding.FragmentUsernameBinding

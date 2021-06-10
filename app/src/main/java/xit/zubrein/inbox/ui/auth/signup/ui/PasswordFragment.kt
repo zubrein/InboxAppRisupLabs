@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import xit.zubrein.inbox.Utils.pref.PrefKeys
+import xit.zubrein.inbox.utils.pref.PrefKeys
 import xit.zubrein.inbox.R
 import xit.zubrein.inbox.base.BaseFragment
 import xit.zubrein.inbox.databinding.FragmentPasswordBinding

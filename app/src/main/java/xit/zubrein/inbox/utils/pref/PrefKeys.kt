@@ -1,4 +1,4 @@
-package xit.zubrein.inbox.Utils.pref
+package xit.zubrein.inbox.utils.pref
 
 object PrefKeys {
 

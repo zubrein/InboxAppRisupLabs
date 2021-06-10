@@ -7,10 +7,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import xit.zubrein.inbox.R
+import xit.zubrein.inbox.utils.pref.PrefKeys
 import xit.zubrein.inbox.adapter.MessageAdapter
 import xit.zubrein.inbox.base.BaseFragment
 import xit.zubrein.inbox.databinding.FragmentMessagesBinding
 import xit.zubrein.inbox.model.ModelMessage
+import xit.zubrein.inbox.ui.auth.login.ui.LoginFragmentDirections
 import xit.zubrein.inbox.ui.messages.MessagesViewModel
 import xit.zubrein.inbox.ui.messages.listener.MessageListener
 import xit.zubrein.inbox.utils.error_toast
@@ -23,13 +25,20 @@ class MessagesFragment : BaseFragment<FragmentMessagesBinding, MessagesViewModel
     override fun getViewModel() = MessagesViewModel::class.java
 
     override fun onViewReady() {
-        viewModel.listener = this
-        viewModel.getMessage()
 
-        binding.logout.setOnClickListener {
+        if(!pref.getBoolean(PrefKeys.LOGIN_STATUS,false)){
             val action = MessagesFragmentDirections.actionMessagesFragmentToLoginFragment()
             findNavController().navigate(action)
-            pref.clearPreference()
+        }else {
+
+            viewModel.listener = this
+            viewModel.getMessage()
+
+            binding.logout.setOnClickListener {
+                val action = MessagesFragmentDirections.actionMessagesFragmentToLoginFragment()
+                findNavController().navigate(action)
+                pref.clearPreference()
+            }
         }
     }
 

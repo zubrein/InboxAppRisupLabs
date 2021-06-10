@@ -5,12 +5,12 @@ import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
-import xit.zubrein.inbox.Utils.pref.PrefKeys
+import xit.zubrein.inbox.utils.pref.PrefKeys
 import xit.zubrein.inbox.R
 import xit.zubrein.inbox.base.BaseActivity
 import xit.zubrein.inbox.databinding.ActivitySplashBinding
 import xit.zubrein.inbox.model.ModelDomain
-import xit.zubrein.inbox.ui.auth.signup.SignupActivity
+import xit.zubrein.inbox.MainActivity
 import xit.zubrein.inbox.utils.Navigator
 
 @AndroidEntryPoint
@@ -33,7 +33,7 @@ class Splash : BaseActivity<ActivitySplashBinding>() , SplashListener{
         response.observe(this, Observer {
             if(it.member[0].domain.isNotEmpty()){
                 pref.putString(PrefKeys.DOMAIN_NAME,it.member[0].domain)
-                Navigator.sharedInstance.navigate(this,SignupActivity::class.java)
+                Navigator.sharedInstance.navigate(this, MainActivity::class.java)
                 finish()
             }
         })
